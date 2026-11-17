@@ -1,0 +1,93 @@
+{
+  "case_id": "cleaned_v1_test_record_protein_f400da208a3f",
+  "drug_smiles": "C1=CC(=CC=C1C2=C(NC(=N2)C3=CC=C(C=C3)F)C4=CC=NC=C4)F",
+  "protein_sequence_sha256": "f400da208a3f5e988d1166d521230ca8db80a04de4798e3d1947845c3b0809df",
+  "protein_length": 616,
+  "true_affinity": 11.200000128,
+  "predicted_affinity": 11.198884963989258,
+  "absolute_error": 0.0011151640107414096,
+  "checkpoint": "checkpoints\\cleaned_v1\\xcadta_best.pt",
+  "attention_shape": [
+    25,
+    616
+  ],
+  "top_15_residues_1_based": [
+    {
+      "position": 161,
+      "amino_acid": "S",
+      "attention": 0.0726645216345787
+    },
+    {
+      "position": 273,
+      "amino_acid": "T",
+      "attention": 0.06826328486204147
+    },
+    {
+      "position": 357,
+      "amino_acid": "E",
+      "attention": 0.019988566637039185
+    },
+    {
+      "position": 358,
+      "amino_acid": "T",
+      "attention": 0.013312537223100662
+    },
+    {
+      "position": 356,
+      "amino_acid": "H",
+      "attention": 0.012586471624672413
+    },
+    {
+      "position": 576,
+      "amino_acid": "P",
+      "attention": 0.009848817251622677
+    },
+    {
+      "position": 230,
+      "amino_acid": "T",
+      "attention": 0.008445764891803265
+    },
+    {
+      "position": 150,
+      "amino_acid": "C",
+      "attention": 0.008150523528456688
+    },
+    {
+      "position": 473,
+      "amino_acid": "P",
+      "attention": 0.007584969978779554
+    },
+    {
+      "position": 362,
+      "amino_acid": "Y",
+      "attention": 0.0075431037694215775
+    },
+    {
+      "position": 478,
+      "amino_acid": "Y",
+      "attention": 0.0068356371484696865
+    },
+    {
+      "position": 283,
+      "amino_acid": "Y",
+      "attention": 0.006794801447540522
+    },
+    {
+      "position": 535,
+      "amino_acid": "P",
+      "attention": 0.006627720780670643
+    },
+    {
+      "position": 359,
+      "amino_acid": "T",
+      "attention": 0.006219371687620878
+    },
+    {
+      "position": 286,
+      "amino_acid": "K",
+      "attention": 0.00603798683732748
+    }
+  ],
+  "interpretation_note": "Attention ranks are model-internal signals, not experimentally validated binding-site residues. Drug and target identities remain unverified.",
+  "figure": "results\\case_studies\\verified_candidate\\residue_attention.png"
+}

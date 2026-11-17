@@ -1,0 +1,1447 @@
+{
+  "evaluation": {
+    "project": "XCADTA",
+    "candidate_protein_hash": "f400da208a3f5e98",
+    "protein_length": 616,
+    "drug_smiles": "C1=CC(=CC=C1C2=C(NC(=N2)C3=CC=C(C=C3)F)C4=CC=NC=C4)F",
+    "true_affinity": 11.200000128,
+    "checkpoint": "checkpoints\\cleaned_v1\\xcadta_best.pt",
+    "device": "cpu",
+    "shap_permutations": 128,
+    "integrated_gradients_steps": 64
+  },
+  "explanation": {
+    "status": "complete",
+    "prediction": 11.154144287109375,
+    "protein_residue_explanation": {
+      "method": "Attention-screened Monte-Carlo permutation SHAP",
+      "baseline": "Each candidate residue embedding is replaced by the mean embedding of the supplied protein sequence; non-candidate residues remain observed.",
+      "candidate_selection": "Top 20 residues by mean drug-to-protein attention, averaged across real drug atoms.",
+      "permutations": 128,
+      "stability_method": "Spearman correlation between absolute SHAP rankings estimated from the first and second halves of sampled permutations.",
+      "candidate_residues": [
+        {
+          "position": 273,
+          "amino_acid": "T",
+          "shap_value": -0.14562474191188812,
+          "importance": 0.14562474191188812,
+          "attention": 0.13402557373046875,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 161,
+          "amino_acid": "S",
+          "shap_value": -0.13316743820905685,
+          "importance": 0.13316743820905685,
+          "attention": 0.10468783229589462,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 12,
+          "amino_acid": "D",
+          "shap_value": -0.0716029480099678,
+          "importance": 0.0716029480099678,
+          "attention": 0.00647654989734292,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 357,
+          "amino_acid": "E",
+          "shap_value": -0.023303784430027008,
+          "importance": 0.023303784430027008,
+          "attention": 0.04907241836190224,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 177,
+          "amino_acid": "Q",
+          "shap_value": -0.01873469352722168,
+          "importance": 0.01873469352722168,
+          "attention": 0.04439311847090721,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 478,
+          "amino_acid": "Y",
+          "shap_value": 0.014058642089366913,
+          "importance": 0.014058642089366913,
+          "attention": 0.01676798239350319,
+          "direction": "raises model output"
+        },
+        {
+          "position": 230,
+          "amino_acid": "T",
+          "shap_value": -0.011475764214992523,
+          "importance": 0.011475764214992523,
+          "attention": 0.005452070385217667,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 277,
+          "amino_acid": "P",
+          "shap_value": -0.010298281908035278,
+          "importance": 0.010298281908035278,
+          "attention": 0.018866196274757385,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 362,
+          "amino_acid": "Y",
+          "shap_value": -0.009910166263580322,
+          "importance": 0.009910166263580322,
+          "attention": 0.01744140312075615,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 356,
+          "amino_acid": "H",
+          "shap_value": -0.00865773856639862,
+          "importance": 0.00865773856639862,
+          "attention": 0.017729680985212326,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 283,
+          "amino_acid": "Y",
+          "shap_value": -0.00812956690788269,
+          "importance": 0.00812956690788269,
+          "attention": 0.02132987417280674,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 97,
+          "amino_acid": "F",
+          "shap_value": -0.005653418600559235,
+          "importance": 0.005653418600559235,
+          "attention": 0.00992899015545845,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 269,
+          "amino_acid": "Y",
+          "shap_value": -0.004254385828971863,
+          "importance": 0.004254385828971863,
+          "attention": 0.005722876638174057,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 358,
+          "amino_acid": "T",
+          "shap_value": -0.0039041712880134583,
+          "importance": 0.0039041712880134583,
+          "attention": 0.013656186871230602,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 565,
+          "amino_acid": "P",
+          "shap_value": 0.00250186026096344,
+          "importance": 0.00250186026096344,
+          "attention": 0.005913100205361843,
+          "direction": "raises model output"
+        },
+        {
+          "position": 576,
+          "amino_acid": "P",
+          "shap_value": -0.0021864324808120728,
+          "importance": 0.0021864324808120728,
+          "attention": 0.014192231930792332,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 473,
+          "amino_acid": "P",
+          "shap_value": 0.0019134432077407837,
+          "importance": 0.0019134432077407837,
+          "attention": 0.01021601352840662,
+          "direction": "raises model output"
+        },
+        {
+          "position": 359,
+          "amino_acid": "T",
+          "shap_value": -0.0015399008989334106,
+          "importance": 0.0015399008989334106,
+          "attention": 0.007746573071926832,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 1,
+          "amino_acid": "M",
+          "shap_value": 0.0005177482962608337,
+          "importance": 0.0005177482962608337,
+          "attention": 0.005743260495364666,
+          "direction": "raises model output"
+        },
+        {
+          "position": 535,
+          "amino_acid": "P",
+          "shap_value": -4.3213367462158203e-07,
+          "importance": 4.3213367462158203e-07,
+          "attention": 0.0067222644574940205,
+          "direction": "lowers model output"
+        }
+      ],
+      "top_residues": [
+        {
+          "position": 273,
+          "amino_acid": "T",
+          "shap_value": -0.14562474191188812,
+          "importance": 0.14562474191188812,
+          "attention": 0.13402557373046875,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 161,
+          "amino_acid": "S",
+          "shap_value": -0.13316743820905685,
+          "importance": 0.13316743820905685,
+          "attention": 0.10468783229589462,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 12,
+          "amino_acid": "D",
+          "shap_value": -0.0716029480099678,
+          "importance": 0.0716029480099678,
+          "attention": 0.00647654989734292,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 357,
+          "amino_acid": "E",
+          "shap_value": -0.023303784430027008,
+          "importance": 0.023303784430027008,
+          "attention": 0.04907241836190224,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 177,
+          "amino_acid": "Q",
+          "shap_value": -0.01873469352722168,
+          "importance": 0.01873469352722168,
+          "attention": 0.04439311847090721,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 478,
+          "amino_acid": "Y",
+          "shap_value": 0.014058642089366913,
+          "importance": 0.014058642089366913,
+          "attention": 0.01676798239350319,
+          "direction": "raises model output"
+        },
+        {
+          "position": 230,
+          "amino_acid": "T",
+          "shap_value": -0.011475764214992523,
+          "importance": 0.011475764214992523,
+          "attention": 0.005452070385217667,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 277,
+          "amino_acid": "P",
+          "shap_value": -0.010298281908035278,
+          "importance": 0.010298281908035278,
+          "attention": 0.018866196274757385,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 362,
+          "amino_acid": "Y",
+          "shap_value": -0.009910166263580322,
+          "importance": 0.009910166263580322,
+          "attention": 0.01744140312075615,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 356,
+          "amino_acid": "H",
+          "shap_value": -0.00865773856639862,
+          "importance": 0.00865773856639862,
+          "attention": 0.017729680985212326,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 283,
+          "amino_acid": "Y",
+          "shap_value": -0.00812956690788269,
+          "importance": 0.00812956690788269,
+          "attention": 0.02132987417280674,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 97,
+          "amino_acid": "F",
+          "shap_value": -0.005653418600559235,
+          "importance": 0.005653418600559235,
+          "attention": 0.00992899015545845,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 269,
+          "amino_acid": "Y",
+          "shap_value": -0.004254385828971863,
+          "importance": 0.004254385828971863,
+          "attention": 0.005722876638174057,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 358,
+          "amino_acid": "T",
+          "shap_value": -0.0039041712880134583,
+          "importance": 0.0039041712880134583,
+          "attention": 0.013656186871230602,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 565,
+          "amino_acid": "P",
+          "shap_value": 0.00250186026096344,
+          "importance": 0.00250186026096344,
+          "attention": 0.005913100205361843,
+          "direction": "raises model output"
+        },
+        {
+          "position": 576,
+          "amino_acid": "P",
+          "shap_value": -0.0021864324808120728,
+          "importance": 0.0021864324808120728,
+          "attention": 0.014192231930792332,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 473,
+          "amino_acid": "P",
+          "shap_value": 0.0019134432077407837,
+          "importance": 0.0019134432077407837,
+          "attention": 0.01021601352840662,
+          "direction": "raises model output"
+        },
+        {
+          "position": 359,
+          "amino_acid": "T",
+          "shap_value": -0.0015399008989334106,
+          "importance": 0.0015399008989334106,
+          "attention": 0.007746573071926832,
+          "direction": "lowers model output"
+        },
+        {
+          "position": 1,
+          "amino_acid": "M",
+          "shap_value": 0.0005177482962608337,
+          "importance": 0.0005177482962608337,
+          "attention": 0.005743260495364666,
+          "direction": "raises model output"
+        },
+        {
+          "position": 535,
+          "amino_acid": "P",
+          "shap_value": -4.3213367462158203e-07,
+          "importance": 4.3213367462158203e-07,
+          "attention": 0.0067222644574940205,
+          "direction": "lowers model output"
+        }
+      ],
+      "baseline_prediction": 11.593597412109375,
+      "additivity_error": 9.5367431640625e-07,
+      "attention_shap_spearman": 0.5849624060150376,
+      "stability_spearman_split_half": 0.9819548872180449,
+      "validation": {
+        "fractions_removed": [
+          0.0,
+          0.1,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "top_shap_absolute_prediction_change": [
+          0.0,
+          0.1955127716064453,
+          0.33808040618896484,
+          0.3695812225341797,
+          0.41530418395996094,
+          0.4394521713256836
+        ],
+        "random_absolute_prediction_change": [
+          0.0,
+          0.023210763931274414,
+          0.091957426071167,
+          0.1571357250213623,
+          0.24504714012145995,
+          0.4394521713256836
+        ],
+        "top_shap_deletion_auc": 0.3432080507278442,
+        "random_deletion_auc": 0.17677006840705872,
+        "deletion_lift_over_random": 1.9415507038076099,
+        "sufficiency": [
+          {
+            "kept_top_residues": 5,
+            "prediction": 11.149673461914062,
+            "absolute_prediction_difference": 0.0044708251953125
+          },
+          {
+            "kept_top_residues": 10,
+            "prediction": 11.149845123291016,
+            "absolute_prediction_difference": 0.004299163818359375
+          }
+        ],
+        "scope": "Only the attention-screened candidate residues are perturbed; all other residues remain at their observed embeddings."
+      },
+      "interpretation": "Positive SHAP values raise the predicted model output relative to the stated embedding baseline; negative values lower it. These are model attributions, not experimentally verified binding effects."
+    },
+    "drug_atom_explanation": {
+      "method": "Integrated Gradients",
+      "baseline": "zero-valued atom-feature reference",
+      "steps": 64,
+      "prediction": 11.154144287109375,
+      "baseline_prediction": 10.338497161865234,
+      "completeness_error": 0.05339466693480874,
+      "completeness_residual": 0.04355120658874512,
+      "atoms": [
+        {
+          "atom_index": 0,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.05779792368412018,
+          "importance": 0.0595625638961792,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.005494250915944576,
+            "degree": -0.007379746530205011,
+            "formal_charge": 0.0,
+            "hybridization": 0.0008823205134831369,
+            "aromaticity": -0.009150958620011806,
+            "total_hydrogens": -0.03665528818964958,
+            "chirality": 0.0
+          },
+          "rank": 19
+        },
+        {
+          "atom_index": 1,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.058268267661333084,
+          "importance": 0.07290518283843994,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.0006309705786406994,
+            "degree": -0.01844962313771248,
+            "formal_charge": 0.0,
+            "hybridization": 0.007318459916859865,
+            "aromaticity": -0.0034019192680716515,
+            "total_hydrogens": -0.04310421273112297,
+            "chirality": 0.0
+          },
+          "rank": 14
+        },
+        {
+          "atom_index": 2,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.023539558053016663,
+          "importance": 0.07290066033601761,
+          "direction": "raises model output",
+          "strongest_feature_group": "degree",
+          "feature_contributions": {
+            "atom_type": -0.00431694183498621,
+            "degree": 0.048220109194517136,
+            "formal_charge": 0.0,
+            "hybridization": -0.0014633502578362823,
+            "aromaticity": -0.012694555334746838,
+            "total_hydrogens": -0.006205705460160971,
+            "chirality": 0.0
+          },
+          "rank": 15
+        },
+        {
+          "atom_index": 3,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.05788299813866615,
+          "importance": 0.07278628647327423,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.000684319413267076,
+            "degree": -0.01815050095319748,
+            "formal_charge": 0.0,
+            "hybridization": 0.007451644632965326,
+            "aromaticity": -0.003917444497346878,
+            "total_hydrogens": -0.042582377791404724,
+            "chirality": 0.0
+          },
+          "rank": 16
+        },
+        {
+          "atom_index": 4,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.05741194635629654,
+          "importance": 0.059444136917591095,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.005546437576413155,
+            "degree": -0.007082399446517229,
+            "formal_charge": 0.0,
+            "hybridization": 0.0010160966776311398,
+            "aromaticity": -0.00966676976531744,
+            "total_hydrogens": -0.036132436245679855,
+            "chirality": 0.0
+          },
+          "rank": 20
+        },
+        {
+          "atom_index": 5,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.017533134669065475,
+          "importance": 0.0716528445482254,
+          "direction": "raises model output",
+          "strongest_feature_group": "degree",
+          "feature_contributions": {
+            "atom_type": -0.010247256606817245,
+            "degree": 0.03144925460219383,
+            "formal_charge": 0.0,
+            "hybridization": -0.005947709083557129,
+            "aromaticity": -0.010864886455237865,
+            "total_hydrogens": 0.013143732212483883,
+            "chirality": 0.0
+          },
+          "rank": 17
+        },
+        {
+          "atom_index": 6,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.04629140347242355,
+          "importance": 0.1221567690372467,
+          "direction": "raises model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.01502357516437769,
+            "degree": 0.02110411785542965,
+            "formal_charge": 0.0,
+            "hybridization": -0.0157951470464468,
+            "aromaticity": -0.007113964296877384,
+            "total_hydrogens": 0.06311997026205063,
+            "chirality": 0.0
+          },
+          "rank": 10
+        },
+        {
+          "atom_index": 7,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.059381309896707535,
+          "importance": 0.10304415971040726,
+          "direction": "raises model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.007256892044097185,
+            "degree": 0.03397265449166298,
+            "formal_charge": 0.0,
+            "hybridization": -0.00410249549895525,
+            "aromaticity": -0.010472035966813564,
+            "total_hydrogens": 0.04724007844924927,
+            "chirality": 0.0
+          },
+          "rank": 11
+        },
+        {
+          "atom_index": 8,
+          "element": "N",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.21546772122383118,
+          "importance": 0.2546449899673462,
+          "direction": "lowers model output",
+          "strongest_feature_group": "atom_type",
+          "feature_contributions": {
+            "atom_type": -0.1316530406475067,
+            "degree": 0.007601532153785229,
+            "formal_charge": 0.0,
+            "hybridization": 0.011987096630036831,
+            "aromaticity": -0.04603356868028641,
+            "total_hydrogens": -0.05736975371837616,
+            "chirality": 0.0
+          },
+          "rank": 6
+        },
+        {
+          "atom_index": 9,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.07657958567142487,
+          "importance": 0.16124080121517181,
+          "direction": "raises model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.01123300101608038,
+            "degree": 0.033761292695999146,
+            "formal_charge": 0.0,
+            "hybridization": 0.0006195336463861167,
+            "aromaticity": -0.031097611412405968,
+            "total_hydrogens": 0.08452937006950378,
+            "chirality": 0.0
+          },
+          "rank": 8
+        },
+        {
+          "atom_index": 10,
+          "element": "N",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.032319582998752594,
+          "importance": 0.20675964653491974,
+          "direction": "raises model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.07308090478181839,
+            "degree": 0.02182628959417343,
+            "formal_charge": 0.0,
+            "hybridization": -0.00634112348780036,
+            "aromaticity": -0.007798004895448685,
+            "total_hydrogens": 0.09771332889795303,
+            "chirality": 0.0
+          },
+          "rank": 7
+        },
+        {
+          "atom_index": 11,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.03342072665691376,
+          "importance": 0.08960561454296112,
+          "direction": "raises model output",
+          "strongest_feature_group": "degree",
+          "feature_contributions": {
+            "atom_type": -0.006084396503865719,
+            "degree": 0.03550694137811661,
+            "formal_charge": 0.0,
+            "hybridization": 0.002525357063859701,
+            "aromaticity": -0.022008046507835388,
+            "total_hydrogens": 0.023480871692299843,
+            "chirality": 0.0
+          },
+          "rank": 12
+        },
+        {
+          "atom_index": 12,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.03870534524321556,
+          "importance": 0.03870534524321556,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.002386870328336954,
+            "degree": -0.0006587559473700821,
+            "formal_charge": 0.0,
+            "hybridization": -0.0002884466084651649,
+            "aromaticity": -0.007222674787044525,
+            "total_hydrogens": -0.028148597106337547,
+            "chirality": 0.0
+          },
+          "rank": 25
+        },
+        {
+          "atom_index": 13,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.03935082256793976,
+          "importance": 0.05403029918670654,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.00021682704391423613,
+            "degree": -0.011918284930288792,
+            "formal_charge": 0.0,
+            "hybridization": 0.00577124860137701,
+            "aromaticity": 0.001568488427437842,
+            "total_hydrogens": -0.034555450081825256,
+            "chirality": 0.0
+          },
+          "rank": 22
+        },
+        {
+          "atom_index": 14,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.024248633533716202,
+          "importance": 0.07340848445892334,
+          "direction": "raises model output",
+          "strongest_feature_group": "degree",
+          "feature_contributions": {
+            "atom_type": -0.005782378371804953,
+            "degree": 0.04882856085896492,
+            "formal_charge": 0.0,
+            "hybridization": -0.0023860763758420944,
+            "aromaticity": -0.0009475377737544477,
+            "total_hydrogens": -0.015463936142623425,
+            "chirality": 0.0
+          },
+          "rank": 13
+        },
+        {
+          "atom_index": 15,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.040035538375377655,
+          "importance": 0.054777611047029495,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.00018624044605530798,
+            "degree": -0.012159723788499832,
+            "formal_charge": 0.0,
+            "hybridization": 0.005744102410972118,
+            "aromaticity": 0.0016269335756078362,
+            "total_hydrogens": -0.03506061062216759,
+            "chirality": 0.0
+          },
+          "rank": 21
+        },
+        {
+          "atom_index": 16,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.03938975930213928,
+          "importance": 0.03938975930213928,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.002355805831030011,
+            "degree": -0.0009009300847537816,
+            "formal_charge": 0.0,
+            "hybridization": -0.0003153510333504528,
+            "aromaticity": -0.007164341863244772,
+            "total_hydrogens": -0.028653331100940704,
+            "chirality": 0.0
+          },
+          "rank": 24
+        },
+        {
+          "atom_index": 17,
+          "element": "F",
+          "is_aromatic": false,
+          "formal_charge": 0,
+          "contribution": -0.018812518566846848,
+          "importance": 0.053043704479932785,
+          "direction": "lowers model output",
+          "strongest_feature_group": "degree",
+          "feature_contributions": {
+            "atom_type": -0.013723819516599178,
+            "degree": -0.019330643117427826,
+            "formal_charge": 0.0,
+            "hybridization": 0.01711559295654297,
+            "aromaticity": 0.0,
+            "total_hydrogens": -0.0028736472595483065,
+            "chirality": 0.0
+          },
+          "rank": 23
+        },
+        {
+          "atom_index": 18,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.04074613004922867,
+          "importance": 0.14350885152816772,
+          "direction": "raises model output",
+          "strongest_feature_group": "aromaticity",
+          "feature_contributions": {
+            "atom_type": -0.010845261625945568,
+            "degree": 0.02142764814198017,
+            "formal_charge": 0.0,
+            "hybridization": -0.020814575254917145,
+            "aromaticity": 0.07069984823465347,
+            "total_hydrogens": -0.019721530377864838,
+            "chirality": 0.0
+          },
+          "rank": 9
+        },
+        {
+          "atom_index": 19,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.18620750308036804,
+          "importance": 0.3214428722858429,
+          "direction": "raises model output",
+          "strongest_feature_group": "aromaticity",
+          "feature_contributions": {
+            "atom_type": -0.027567068114876747,
+            "degree": 0.08330396562814713,
+            "formal_charge": 0.0,
+            "hybridization": -0.04005061835050583,
+            "aromaticity": 0.1026434376835823,
+            "total_hydrogens": 0.06787778437137604,
+            "chirality": 0.0
+          },
+          "rank": 4
+        },
+        {
+          "atom_index": 20,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.24092066287994385,
+          "importance": 0.4725429117679596,
+          "direction": "raises model output",
+          "strongest_feature_group": "aromaticity",
+          "feature_contributions": {
+            "atom_type": -0.04161921143531799,
+            "degree": 0.12629923224449158,
+            "formal_charge": 0.0,
+            "hybridization": -0.07419192045927048,
+            "aromaticity": 0.16268831491470337,
+            "total_hydrogens": 0.06774424016475677,
+            "chirality": 0.0
+          },
+          "rank": 2
+        },
+        {
+          "atom_index": 21,
+          "element": "N",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.2041330635547638,
+          "importance": 0.592599630355835,
+          "direction": "raises model output",
+          "strongest_feature_group": "aromaticity",
+          "feature_contributions": {
+            "atom_type": 0.010028771124780178,
+            "degree": 0.17471235990524292,
+            "formal_charge": 0.0,
+            "hybridization": -0.10130416601896286,
+            "aromaticity": 0.2136252224445343,
+            "total_hydrogens": -0.09292910993099213,
+            "chirality": 0.0
+          },
+          "rank": 1
+        },
+        {
+          "atom_index": 22,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.2400062084197998,
+          "importance": 0.4714934229850769,
+          "direction": "raises model output",
+          "strongest_feature_group": "aromaticity",
+          "feature_contributions": {
+            "atom_type": -0.04194369539618492,
+            "degree": 0.12641467154026031,
+            "formal_charge": 0.0,
+            "hybridization": -0.07379990816116333,
+            "aromaticity": 0.16164042055606842,
+            "total_hydrogens": 0.06769472360610962,
+            "chirality": 0.0
+          },
+          "rank": 3
+        },
+        {
+          "atom_index": 23,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.18525871634483337,
+          "importance": 0.3203108310699463,
+          "direction": "raises model output",
+          "strongest_feature_group": "aromaticity",
+          "feature_contributions": {
+            "atom_type": -0.027874194085597992,
+            "degree": 0.08337461948394775,
+            "formal_charge": 0.0,
+            "hybridization": -0.03965185582637787,
+            "aromaticity": 0.10158716887235641,
+            "total_hydrogens": 0.06782298535108566,
+            "chirality": 0.0
+          },
+          "rank": 5
+        },
+        {
+          "atom_index": 24,
+          "element": "F",
+          "is_aromatic": false,
+          "formal_charge": 0,
+          "contribution": -0.015367493033409119,
+          "importance": 0.06628192961215973,
+          "direction": "lowers model output",
+          "strongest_feature_group": "atom_type",
+          "feature_contributions": {
+            "atom_type": -0.022747643291950226,
+            "degree": -0.018077068030834198,
+            "formal_charge": 0.0,
+            "hybridization": 0.019465597346425056,
+            "aromaticity": 0.0,
+            "total_hydrogens": 0.005991620942950249,
+            "chirality": 0.0
+          },
+          "rank": 18
+        }
+      ],
+      "ranked_atoms": [
+        {
+          "atom_index": 21,
+          "element": "N",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.2041330635547638,
+          "importance": 0.592599630355835,
+          "direction": "raises model output",
+          "strongest_feature_group": "aromaticity",
+          "feature_contributions": {
+            "atom_type": 0.010028771124780178,
+            "degree": 0.17471235990524292,
+            "formal_charge": 0.0,
+            "hybridization": -0.10130416601896286,
+            "aromaticity": 0.2136252224445343,
+            "total_hydrogens": -0.09292910993099213,
+            "chirality": 0.0
+          },
+          "rank": 1
+        },
+        {
+          "atom_index": 20,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.24092066287994385,
+          "importance": 0.4725429117679596,
+          "direction": "raises model output",
+          "strongest_feature_group": "aromaticity",
+          "feature_contributions": {
+            "atom_type": -0.04161921143531799,
+            "degree": 0.12629923224449158,
+            "formal_charge": 0.0,
+            "hybridization": -0.07419192045927048,
+            "aromaticity": 0.16268831491470337,
+            "total_hydrogens": 0.06774424016475677,
+            "chirality": 0.0
+          },
+          "rank": 2
+        },
+        {
+          "atom_index": 22,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.2400062084197998,
+          "importance": 0.4714934229850769,
+          "direction": "raises model output",
+          "strongest_feature_group": "aromaticity",
+          "feature_contributions": {
+            "atom_type": -0.04194369539618492,
+            "degree": 0.12641467154026031,
+            "formal_charge": 0.0,
+            "hybridization": -0.07379990816116333,
+            "aromaticity": 0.16164042055606842,
+            "total_hydrogens": 0.06769472360610962,
+            "chirality": 0.0
+          },
+          "rank": 3
+        },
+        {
+          "atom_index": 19,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.18620750308036804,
+          "importance": 0.3214428722858429,
+          "direction": "raises model output",
+          "strongest_feature_group": "aromaticity",
+          "feature_contributions": {
+            "atom_type": -0.027567068114876747,
+            "degree": 0.08330396562814713,
+            "formal_charge": 0.0,
+            "hybridization": -0.04005061835050583,
+            "aromaticity": 0.1026434376835823,
+            "total_hydrogens": 0.06787778437137604,
+            "chirality": 0.0
+          },
+          "rank": 4
+        },
+        {
+          "atom_index": 23,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.18525871634483337,
+          "importance": 0.3203108310699463,
+          "direction": "raises model output",
+          "strongest_feature_group": "aromaticity",
+          "feature_contributions": {
+            "atom_type": -0.027874194085597992,
+            "degree": 0.08337461948394775,
+            "formal_charge": 0.0,
+            "hybridization": -0.03965185582637787,
+            "aromaticity": 0.10158716887235641,
+            "total_hydrogens": 0.06782298535108566,
+            "chirality": 0.0
+          },
+          "rank": 5
+        },
+        {
+          "atom_index": 8,
+          "element": "N",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.21546772122383118,
+          "importance": 0.2546449899673462,
+          "direction": "lowers model output",
+          "strongest_feature_group": "atom_type",
+          "feature_contributions": {
+            "atom_type": -0.1316530406475067,
+            "degree": 0.007601532153785229,
+            "formal_charge": 0.0,
+            "hybridization": 0.011987096630036831,
+            "aromaticity": -0.04603356868028641,
+            "total_hydrogens": -0.05736975371837616,
+            "chirality": 0.0
+          },
+          "rank": 6
+        },
+        {
+          "atom_index": 10,
+          "element": "N",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.032319582998752594,
+          "importance": 0.20675964653491974,
+          "direction": "raises model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.07308090478181839,
+            "degree": 0.02182628959417343,
+            "formal_charge": 0.0,
+            "hybridization": -0.00634112348780036,
+            "aromaticity": -0.007798004895448685,
+            "total_hydrogens": 0.09771332889795303,
+            "chirality": 0.0
+          },
+          "rank": 7
+        },
+        {
+          "atom_index": 9,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.07657958567142487,
+          "importance": 0.16124080121517181,
+          "direction": "raises model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.01123300101608038,
+            "degree": 0.033761292695999146,
+            "formal_charge": 0.0,
+            "hybridization": 0.0006195336463861167,
+            "aromaticity": -0.031097611412405968,
+            "total_hydrogens": 0.08452937006950378,
+            "chirality": 0.0
+          },
+          "rank": 8
+        },
+        {
+          "atom_index": 18,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.04074613004922867,
+          "importance": 0.14350885152816772,
+          "direction": "raises model output",
+          "strongest_feature_group": "aromaticity",
+          "feature_contributions": {
+            "atom_type": -0.010845261625945568,
+            "degree": 0.02142764814198017,
+            "formal_charge": 0.0,
+            "hybridization": -0.020814575254917145,
+            "aromaticity": 0.07069984823465347,
+            "total_hydrogens": -0.019721530377864838,
+            "chirality": 0.0
+          },
+          "rank": 9
+        },
+        {
+          "atom_index": 6,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.04629140347242355,
+          "importance": 0.1221567690372467,
+          "direction": "raises model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.01502357516437769,
+            "degree": 0.02110411785542965,
+            "formal_charge": 0.0,
+            "hybridization": -0.0157951470464468,
+            "aromaticity": -0.007113964296877384,
+            "total_hydrogens": 0.06311997026205063,
+            "chirality": 0.0
+          },
+          "rank": 10
+        },
+        {
+          "atom_index": 7,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.059381309896707535,
+          "importance": 0.10304415971040726,
+          "direction": "raises model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.007256892044097185,
+            "degree": 0.03397265449166298,
+            "formal_charge": 0.0,
+            "hybridization": -0.00410249549895525,
+            "aromaticity": -0.010472035966813564,
+            "total_hydrogens": 0.04724007844924927,
+            "chirality": 0.0
+          },
+          "rank": 11
+        },
+        {
+          "atom_index": 11,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.03342072665691376,
+          "importance": 0.08960561454296112,
+          "direction": "raises model output",
+          "strongest_feature_group": "degree",
+          "feature_contributions": {
+            "atom_type": -0.006084396503865719,
+            "degree": 0.03550694137811661,
+            "formal_charge": 0.0,
+            "hybridization": 0.002525357063859701,
+            "aromaticity": -0.022008046507835388,
+            "total_hydrogens": 0.023480871692299843,
+            "chirality": 0.0
+          },
+          "rank": 12
+        },
+        {
+          "atom_index": 14,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.024248633533716202,
+          "importance": 0.07340848445892334,
+          "direction": "raises model output",
+          "strongest_feature_group": "degree",
+          "feature_contributions": {
+            "atom_type": -0.005782378371804953,
+            "degree": 0.04882856085896492,
+            "formal_charge": 0.0,
+            "hybridization": -0.0023860763758420944,
+            "aromaticity": -0.0009475377737544477,
+            "total_hydrogens": -0.015463936142623425,
+            "chirality": 0.0
+          },
+          "rank": 13
+        },
+        {
+          "atom_index": 1,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.058268267661333084,
+          "importance": 0.07290518283843994,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.0006309705786406994,
+            "degree": -0.01844962313771248,
+            "formal_charge": 0.0,
+            "hybridization": 0.007318459916859865,
+            "aromaticity": -0.0034019192680716515,
+            "total_hydrogens": -0.04310421273112297,
+            "chirality": 0.0
+          },
+          "rank": 14
+        },
+        {
+          "atom_index": 2,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.023539558053016663,
+          "importance": 0.07290066033601761,
+          "direction": "raises model output",
+          "strongest_feature_group": "degree",
+          "feature_contributions": {
+            "atom_type": -0.00431694183498621,
+            "degree": 0.048220109194517136,
+            "formal_charge": 0.0,
+            "hybridization": -0.0014633502578362823,
+            "aromaticity": -0.012694555334746838,
+            "total_hydrogens": -0.006205705460160971,
+            "chirality": 0.0
+          },
+          "rank": 15
+        },
+        {
+          "atom_index": 3,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.05788299813866615,
+          "importance": 0.07278628647327423,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.000684319413267076,
+            "degree": -0.01815050095319748,
+            "formal_charge": 0.0,
+            "hybridization": 0.007451644632965326,
+            "aromaticity": -0.003917444497346878,
+            "total_hydrogens": -0.042582377791404724,
+            "chirality": 0.0
+          },
+          "rank": 16
+        },
+        {
+          "atom_index": 5,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": 0.017533134669065475,
+          "importance": 0.0716528445482254,
+          "direction": "raises model output",
+          "strongest_feature_group": "degree",
+          "feature_contributions": {
+            "atom_type": -0.010247256606817245,
+            "degree": 0.03144925460219383,
+            "formal_charge": 0.0,
+            "hybridization": -0.005947709083557129,
+            "aromaticity": -0.010864886455237865,
+            "total_hydrogens": 0.013143732212483883,
+            "chirality": 0.0
+          },
+          "rank": 17
+        },
+        {
+          "atom_index": 24,
+          "element": "F",
+          "is_aromatic": false,
+          "formal_charge": 0,
+          "contribution": -0.015367493033409119,
+          "importance": 0.06628192961215973,
+          "direction": "lowers model output",
+          "strongest_feature_group": "atom_type",
+          "feature_contributions": {
+            "atom_type": -0.022747643291950226,
+            "degree": -0.018077068030834198,
+            "formal_charge": 0.0,
+            "hybridization": 0.019465597346425056,
+            "aromaticity": 0.0,
+            "total_hydrogens": 0.005991620942950249,
+            "chirality": 0.0
+          },
+          "rank": 18
+        },
+        {
+          "atom_index": 0,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.05779792368412018,
+          "importance": 0.0595625638961792,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.005494250915944576,
+            "degree": -0.007379746530205011,
+            "formal_charge": 0.0,
+            "hybridization": 0.0008823205134831369,
+            "aromaticity": -0.009150958620011806,
+            "total_hydrogens": -0.03665528818964958,
+            "chirality": 0.0
+          },
+          "rank": 19
+        },
+        {
+          "atom_index": 4,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.05741194635629654,
+          "importance": 0.059444136917591095,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.005546437576413155,
+            "degree": -0.007082399446517229,
+            "formal_charge": 0.0,
+            "hybridization": 0.0010160966776311398,
+            "aromaticity": -0.00966676976531744,
+            "total_hydrogens": -0.036132436245679855,
+            "chirality": 0.0
+          },
+          "rank": 20
+        },
+        {
+          "atom_index": 15,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.040035538375377655,
+          "importance": 0.054777611047029495,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.00018624044605530798,
+            "degree": -0.012159723788499832,
+            "formal_charge": 0.0,
+            "hybridization": 0.005744102410972118,
+            "aromaticity": 0.0016269335756078362,
+            "total_hydrogens": -0.03506061062216759,
+            "chirality": 0.0
+          },
+          "rank": 21
+        },
+        {
+          "atom_index": 13,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.03935082256793976,
+          "importance": 0.05403029918670654,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.00021682704391423613,
+            "degree": -0.011918284930288792,
+            "formal_charge": 0.0,
+            "hybridization": 0.00577124860137701,
+            "aromaticity": 0.001568488427437842,
+            "total_hydrogens": -0.034555450081825256,
+            "chirality": 0.0
+          },
+          "rank": 22
+        },
+        {
+          "atom_index": 17,
+          "element": "F",
+          "is_aromatic": false,
+          "formal_charge": 0,
+          "contribution": -0.018812518566846848,
+          "importance": 0.053043704479932785,
+          "direction": "lowers model output",
+          "strongest_feature_group": "degree",
+          "feature_contributions": {
+            "atom_type": -0.013723819516599178,
+            "degree": -0.019330643117427826,
+            "formal_charge": 0.0,
+            "hybridization": 0.01711559295654297,
+            "aromaticity": 0.0,
+            "total_hydrogens": -0.0028736472595483065,
+            "chirality": 0.0
+          },
+          "rank": 23
+        },
+        {
+          "atom_index": 16,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.03938975930213928,
+          "importance": 0.03938975930213928,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.002355805831030011,
+            "degree": -0.0009009300847537816,
+            "formal_charge": 0.0,
+            "hybridization": -0.0003153510333504528,
+            "aromaticity": -0.007164341863244772,
+            "total_hydrogens": -0.028653331100940704,
+            "chirality": 0.0
+          },
+          "rank": 24
+        },
+        {
+          "atom_index": 12,
+          "element": "C",
+          "is_aromatic": true,
+          "formal_charge": 0,
+          "contribution": -0.03870534524321556,
+          "importance": 0.03870534524321556,
+          "direction": "lowers model output",
+          "strongest_feature_group": "total_hydrogens",
+          "feature_contributions": {
+            "atom_type": -0.002386870328336954,
+            "degree": -0.0006587559473700821,
+            "formal_charge": 0.0,
+            "hybridization": -0.0002884466084651649,
+            "aromaticity": -0.007222674787044525,
+            "total_hydrogens": -0.028148597106337547,
+            "chirality": 0.0
+          },
+          "rank": 25
+        }
+      ],
+      "feature_groups": [
+        "atom_type",
+        "degree",
+        "formal_charge",
+        "hybridization",
+        "aromaticity",
+        "total_hydrogens",
+        "chirality"
+      ],
+      "interpretation": "Positive contributions raise the model output relative to the zero-feature reference; negative contributions lower it. Importance is the sum of absolute feature attributions for each atom."
+    },
+    "metrics": {
+      "shap_reconstruction_residual": 9.5367431640625e-07,
+      "shap_additivity_error": 9.5367431640625e-07,
+      "deletion_auc_top_shap": 0.3432080507278442,
+      "deletion_auc_random": 0.17677006840705872,
+      "deletion_lift_over_random": 1.9415507038076099,
+      "sufficiency_top_residue_tests": [
+        {
+          "kept_top_residues": 5,
+          "prediction": 11.149673461914062,
+          "absolute_prediction_difference": 0.0044708251953125
+        },
+        {
+          "kept_top_residues": 10,
+          "prediction": 11.149845123291016,
+          "absolute_prediction_difference": 0.004299163818359375
+        }
+      ],
+      "attribution_stability_spearman": 0.9819548872180449,
+      "attention_shap_spearman": 0.5849624060150376,
+      "integrated_gradients_completeness_error": 0.05339466693480874,
+      "integrated_gradients_completeness_residual": 0.04355120658874512
+    },
+    "methodological_notes": [
+      "Residue SHAP is estimated with sampled feature-order permutations over an attention-screened candidate set.",
+      "Deletion and sufficiency tests use the same candidate set and mean-embedding reference; they are not external biological validation.",
+      "Integrated Gradients uses a zero-valued atom-feature reference and trapezoidal integration.",
+      "Cross-attention indicates model attention allocation and must not be interpreted as a confirmed physical contact map."
+    ]
+  }
+}

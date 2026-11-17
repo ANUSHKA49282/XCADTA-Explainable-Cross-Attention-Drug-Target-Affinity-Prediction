@@ -1,0 +1,20 @@
+[
+  {
+    "pair": "ABL1_imatinib",
+    "top_k_recall": 0.0,
+    "verdict": "no",
+    "figure": "/content/drive/MyDrive/xcadta/results/case_studies/ABL1_imatinib_overlay.png",
+    "smiles": "C1CC(C1)N2C3=C(C(=N2)C4=CC(=C(C=C4)Cl)O)C(=NC=N3)N",
+    "y_true": 13.594850022,
+    "y_pred": 14.490346908569336
+  },
+  {
+    "pair": "EGFR_erlotinib",
+    "top_k_recall": 0.0,
+    "verdict": "no",
+    "figure": "/content/drive/MyDrive/xcadta/results/case_studies/EGFR_erlotinib_overlay.png",
+    "smiles": "CC1=C(C=C2C(=C1)C(=O)C3=CC(=CC(=C3C2=O)O)OC)O",
+    "y_true": 14.668636236,
+    "y_pred": 14.626081466674805
+  }
+]

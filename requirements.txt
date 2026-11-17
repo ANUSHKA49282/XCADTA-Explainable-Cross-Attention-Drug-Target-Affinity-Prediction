@@ -1,0 +1,31 @@
+# XCADTA - Python dependencies
+# Recommended Python: 3.11
+# Install from the project root with: pip install -r req.txt
+
+# Deep learning and graph neural networks
+torch>=2.3
+torch-geometric>=2.5
+
+# Molecular and protein processing
+rdkit
+transformers>=4.40
+
+# Machine learning and explainability
+scikit-learn
+scipy
+shap
+
+# Data handling
+numpy>=1.26,<2.3
+pandas
+networkx
+
+# Figures and progress utilities
+matplotlib
+seaborn
+tqdm
+
+# Backend API
+fastapi
+uvicorn[standard]
+python-multipart
