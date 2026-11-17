@@ -1,147 +1,432 @@
-# XCADTA
 
+# XCADTA
 ### Explainable Cross-Attention Drug–Target Affinity Prediction
 
-XCADTA is a deep-learning project for predicting drug–target binding affinity from a small-molecule representation and a protein amino-acid sequence. It combines a graph-based drug encoder with pretrained ESM-2 protein embeddings and bidirectional cross-attention. A FastAPI backend exposes prediction and explanation endpoints, while a React + Vite frontend provides an interactive dashboard.
+XCADTA is a deep-learning framework for predicting drug–target binding affinity using molecular graph representations and protein sequence embeddings. It combines graph-based molecular learning, pretrained ESM-2 protein representations, and bidirectional cross-attention to model interactions between drug molecules and target proteins.
 
-> **Research/demo note:** XCADTA produces computational affinity estimates and model-internal explanations. Attention or attribution scores should not be interpreted as experimentally confirmed binding sites or clinical evidence.
+The project integrates an explainability pipeline, a FastAPI backend, and an interactive React-based dashboard for affinity prediction, visualization, and prediction history.
+
+> **Research and demonstration note:** XCADTA generates computational affinity estimates and model-internal explanations. Attention and attribution scores indicate patterns learned by the model; they should not be interpreted as experimentally confirmed binding sites, molecular contacts, or clinical evidence.
 
 ---
 
-## Key Components
+## Table of Contents
 
-- **Drug Representation:** SMILES are converted into molecular graphs using RDKit.
-- **Drug Encoder:** Graph Attention Network (GAT) and Graph Convolutional Network (GCN) layers learn molecular representations.
-- **Protein Representation:** Precomputed ESM-2 embeddings provide 1280-dimensional residue representations.
-- **Cross-Modal Interaction:** Bidirectional drug-to-protein and protein-to-drug cross-attention combines the two representations.
-- **Affinity Prediction:** A fusion and regression head predicts a KIBA affinity score.
-- **Explainability:** The application exposes model attention and residue-level explanation outputs. These describe model behaviour, not experimentally verified molecular contacts.
-- **Application:** FastAPI serves the model; React and Vite provide the frontend; SQLite stores prediction history locally.
+1. [Project Overview](#project-overview)
+2. [Key Features](#key-features)
+3. [Application Screenshots](#application-screenshots)
+4. [Research Figures](#research-figures)
+5. [Model Architecture](#model-architecture)
+6. [Technology Stack](#technology-stack)
+7. [Project Structure](#project-structure)
+8. [Experimental Results](#experimental-results)
+9. [Installation and Setup](#installation-and-setup)
+10. [Running the Application](#running-the-application)
+11. [Training and Evaluation](#training-and-evaluation)
+12. [API Documentation](#api-documentation)
+13. [Datasets and Pretrained Models](#datasets-and-pretrained-models)
+14. [Explainability and Interpretation](#explainability-and-interpretation)
+15. [Reproducibility Notes](#reproducibility-notes)
+16. [Acknowledgements](#acknowledgements)
 
-## Technology Stack
+---
+
+## 1. Project Overview
+
+Drug–target binding affinity prediction is an important computational task in drug discovery. Understanding the relationship between molecular structures and protein sequences can help identify and prioritize potential drug–target interactions.
+
+XCADTA addresses this task through a cross-modal learning architecture that combines molecular graph representations with protein sequence representations.
+
+The framework consists of:
+
+- A graph-based drug encoder.
+- Pretrained ESM-2 protein embeddings.
+- Bidirectional cross-attention for drug–protein interaction modelling.
+- A fusion and regression module for affinity prediction.
+- Explainability outputs for inspecting model behaviour.
+- A full-stack application for interactive inference and visualization.
+
+---
+
+## 2. Key Features
+
+- **Molecular Graph Processing:** Converts drug SMILES strings into molecular graphs using RDKit.
+- **Graph-Based Drug Encoding:** Uses Graph Attention Network (GAT) and Graph Convolutional Network (GCN) layers.
+- **Protein Representation Learning:** Uses precomputed ESM-2 embeddings with 1280-dimensional residue representations.
+- **Bidirectional Cross-Attention:** Models interactions between drug and protein representations.
+- **Affinity Prediction:** Predicts KIBA binding affinity scores using a fusion and regression head.
+- **Explainability:** Provides attention-based and residue-level attribution outputs.
+- **Interactive Dashboard:** Supports drug–target prediction and visualization through a React frontend.
+- **Prediction History:** Stores local prediction records using SQLite.
+- **REST API:** Exposes prediction, explanation, protein, drug, and history endpoints through FastAPI.
+
+---
+
+## 3. Application Screenshots
+
+The following screenshots demonstrate the major interfaces and capabilities of the XCADTA application.
+
+All application screenshots are stored in:
+
+`docs/screenshots/`
+
+### 3.1 Home Page
+
+![XCADTA Home Page](docs/screenshots/01-home.png)
+
+### 3.2 Affinity Prediction — Example 1
+
+![Affinity Prediction Example 1](docs/screenshots/02-affinity-1.png)
+
+### 3.3 Affinity Prediction — Example 2
+
+![Affinity Prediction Example 2](docs/screenshots/03-affinity-2.png)
+
+### 3.4 Affinity Prediction Heatmap
+
+![Affinity Prediction Heatmap](docs/screenshots/04-affinity-heatmap.png)
+
+### 3.5 Explainability Dashboard
+
+![XCADTA Explainability Dashboard](docs/screenshots/05-explainability.png)
+
+### 3.6 Detailed Explanation — View 1
+
+![Detailed Explanation View 1](docs/screenshots/06-full-explanation-1.png)
+
+### 3.7 Detailed Explanation — View 2
+
+![Detailed Explanation View 2](docs/screenshots/07-full-explanation-2.png)
+
+### 3.8 Detailed Explanation — View 3
+
+![Detailed Explanation View 3](docs/screenshots/08-full-explanation-3.png)
+
+### 3.9 Detailed Explanation — View 4
+
+![Detailed Explanation View 4](docs/screenshots/09-full-explanation-4.png)
+
+### 3.10 Prediction History
+
+![XCADTA Prediction History](docs/screenshots/10-prediction-history.png)
+
+### 3.11 Model Architecture
+
+![XCADTA Model Architecture Interface](docs/screenshots/11-model-architecture.png)
+
+---
+
+## 4. Research Figures
+
+The following figures present the proposed architecture, model comparison, attention visualization, and explainability evaluation.
+
+All five figures are available in `results/final_figures/`.
+
+### Figure 1. XCADTA Model Architecture
+
+The overall architecture of the proposed Explainable Cross-Attention Drug–Target Affinity Prediction framework.
+
+![XCADTA Architecture](results/final_figures/Figure_1_XCADTA_Architecture.png)
+
+### Figure 2. XCADTA vs. Concatenation Ablation
+
+Comparison of the proposed cross-attention fusion approach against the concatenation-based ablation model.
+
+![XCADTA vs Concat Ablation](results/final_figures/Figure_2_XCADTA_vs_Concat_Ablation.png)
+
+### Figure 3. Cross-Attention Heatmap
+
+Visualization of cross-attention patterns between drug representations and protein representations.
+
+![Attention Heatmap](results/final_figures/Figure_3_Attention_Heatmap.png)
+
+### Figure 4. Explainability Validation
+
+Evaluation of the explainability framework using the reported validation metrics.
+
+![Explainability Validation](results/final_figures/Figure_4_Explainability_Validation.png)
+
+### Figure 5. Candidate Residue Attention
+
+Residue-level attention visualization for the selected candidate protein.
+
+![Candidate Residue Attention](results/final_figures/Figure_5_Candidate_Residue_Attention.png)
+
+---
+
+## 5. Model Architecture
+
+XCADTA combines graph-based molecular learning and pretrained protein representations through a bidirectional cross-attention mechanism.
+
+### 5.1 Drug Representation
+
+- Input: Small-molecule SMILES string.
+- Molecular graph generation using RDKit.
+- Atom and bond feature extraction.
+- Graph-based feature learning using GAT and GCN layers.
+
+### 5.2 Protein Representation
+
+- Input: Protein amino-acid sequence.
+- Precomputed ESM-2 embeddings.
+- Embedding dimensionality: 1280.
+- Residue-level protein representations.
+
+### 5.3 Bidirectional Cross-Attention
+
+The drug and protein representations interact through bidirectional multi-head cross-attention.
+
+- Drug-to-protein attention.
+- Protein-to-drug attention.
+- Four attention heads.
+- Cross-modal feature integration.
+
+### 5.4 Fusion and Regression
+
+The resulting representations are combined through a fusion module and passed to a regression head to predict the drug–target affinity score.
+
+---
+
+## 6. Technology Stack
 
 | Area | Technologies |
 |---|---|
 | Deep Learning | PyTorch, PyTorch Geometric |
 | Molecular Processing | RDKit |
-| Protein Embeddings | ESM-2, Transformers / fair-esm tooling |
-| Explainability and Evaluation | SHAP, scikit-learn, SciPy |
+| Protein Embeddings | ESM-2, Transformers |
+| Explainability | SHAP, attention-based analysis |
+| Evaluation | scikit-learn, SciPy |
 | Data Processing | NumPy, Pandas, NetworkX |
 | Backend | FastAPI, Uvicorn |
-| Frontend | React, Vite, Recharts, Lucide React |
-| Local History | SQLite |
+| Frontend | React, Vite |
+| Visualization | Recharts, Lucide React |
+| Local Database | SQLite |
+| Development | Python, JavaScript, Git, GitHub |
 
-## Project Structure
+---
 
-The main project layout is organised as follows. Some data, model checkpoints and generated outputs are created locally and are not expected to be included in a source-code checkout.
+## 7. Project Structure
+
+The main project layout is organised as follows:
 
 ```text
 XCADTA/
+│
 ├── data/
-│   ├── processed/
-│   │   ├── cleaned_v1/
-│   │   └── esm_embeddings.pt
-│   └── predictions.db
+│   └── processed/
+│       ├── cleaned_v1/
+│       └── esm_embeddings.pt
+│
 ├── checkpoints/
 │   └── cleaned_v1/
 │       └── xcadta_best.pt
+│
+├── docs/
+│   └── screenshots/
+│       ├── 01-home.png
+│       ├── 02-affinity-1.png
+│       ├── 03-affinity-2.png
+│       ├── 04-affinity-heatmap.png
+│       ├── 05-explainability.png
+│       ├── 06-full-explanation-1.png
+│       ├── 07-full-explanation-2.png
+│       ├── 08-full-explanation-3.png
+│       ├── 09-full-explanation-4.png
+│       ├── 10-prediction-history.png
+│       └── 11-model-architecture.png
+│
 ├── results/
+│   ├── archive/
+│   ├── case_studies/
+│   ├── final_figures/
+│   │   ├── Figure_1_XCADTA_Architecture.png
+│   │   ├── Figure_2_XCADTA_vs_Concat_Ablation.png
+│   │   ├── Figure_3_Attention_Heatmap.png
+│   │   ├── Figure_4_Explainability_Validation.png
+│   │   └── Figure_5_Candidate_Residue_Attention.png
 │   ├── metrics_cleaned_test.json
-│   ├── metrics_concat_ablation.json
-│   └── final_figures/
+│   └── metrics_concat_ablation.json
+│
 ├── scripts/
-│   └── generate_figure_2_comparison.py
+│   ├── check_candidate.py
+│   ├── export_candidate_fasta.py
+│   ├── generate_figure_1_architecture.py
+│   ├── generate_figure_2_comparison.py
+│   ├── generate_figure_3_attention.py
+│   ├── generate_figure_4_explainability.py
+│   ├── generate_figure_5_candidate.py
+│   └── run_explainability_validation.py
+│
 ├── src/
 │   ├── api.py
-│   ├── train.py
-│   ├── evaluate.py
+│   ├── case_study.py
 │   ├── data_utils.py
+│   ├── esm_embed.py
+│   ├── evaluate.py
+│   ├── explain.py
+│   ├── train.py
 │   └── models/
+│       ├── drug_encoder.py
+│       ├── fusion.py
+│       └── xcadta.py
+│
 ├── frontend/
 │   ├── src/
 │   ├── package.json
 │   ├── package-lock.json
 │   └── vite.config.js
-├── req.txt
+│
+├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
-The exact contents of `src/models/` and the data subdirectories may vary with the delivered project version. Keep the trained checkpoint and embedding cache at the paths shown above unless the paths in `src/api.py` are updated accordingly.
+**Note:** Model checkpoints, datasets, embedding caches, and local database files are generated or obtained separately and are not included in the public source-code repository.
 
-## Requirements
+---
 
-- Python 3.11 is recommended for the local backend environment.
-- Node.js and npm for the frontend.
-- The trained model checkpoint and precomputed protein embedding cache.
-- The processed dataset files for model training and evaluation.
+## 8. Experimental Results
+
+The final comparison generated by the project reports the following held-out evaluation metrics:
+
+| Metric | XCADTA | Concat Ablation |
+|---|---:|---:|
+| Mean Squared Error (MSE) | 0.2478 | 0.3533 |
+| Concordance Index (CI) | 0.8146 | 0.7761 |
+| Modified R² (r2m) | 0.6086 | 0.4870 |
+
+### Performance Interpretation
+
+- XCADTA achieves a lower MSE than the concatenation-based ablation.
+- XCADTA achieves a higher Concordance Index.
+- XCADTA achieves a higher modified R².
+
+These results indicate improved predictive performance for the evaluated XCADTA configuration compared with the reported concatenation ablation.
+
+The results are specific to the dataset version, evaluation split, and experimental configuration used in this project. They should not be interpreted as evidence of clinical or experimental binding performance.
+
+---
+
+## 9. Installation and Setup
+
+### Prerequisites
+
+- Python 3.11 recommended.
+- Node.js and npm.
+- Git.
+- Compatible PyTorch and PyTorch Geometric installations.
+- Trained XCADTA model checkpoint.
+- Precomputed ESM-2 protein embedding cache.
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/ANUSHKA49282/XCADTA-Explainable-Cross-Attention-Drug-Target-Affinity-Prediction.git
+
+cd XCADTA-Explainable-Cross-Attention-Drug-Target-Affinity-Prediction
+```
+
+### Create a Python Virtual Environment
+
+Windows PowerShell:
+
+```powershell
+python -m venv .venv
+
+.\.venv\Scripts\Activate.ps1
+```
 
 ### Install Python Dependencies
 
-Run this command from the project root:
+Run from the project root:
 
 ```bash
-pip install -r req.txt
+pip install -r requirements.txt
 ```
 
-For PyTorch and PyTorch Geometric, use installation instructions compatible with your operating system and CPU/CUDA setup if the default pip installation does not match your environment.
+For PyTorch and PyTorch Geometric, use installation instructions compatible with your operating system and CPU/CUDA configuration if the default installation does not match your environment.
 
 ### Install Frontend Dependencies
 
 ```bash
 cd frontend
+
 npm install
 ```
 
-## Run the Application Locally
+---
 
-Open two terminals from the project root.
+## 10. Running the Application
 
-### 1. Start the Backend
+The backend and frontend should be started in separate terminals.
+
+### 10.1 Start the Backend
+
+From the project root:
 
 ```bash
 python -m uvicorn api:app --app-dir src --host 127.0.0.1 --port 8000
 ```
 
-The API expects these files to exist:
+The backend expects the following model artifacts at the configured paths:
 
 ```text
-checkpoints/cleaned_v1/xcadta_best.pt
-data/processed/esm_embeddings.pt
+checkpoints/
+└── cleaned_v1/
+    └── xcadta_best.pt
+
+data/
+└── processed/
+    └── esm_embeddings.pt
 ```
 
-The backend creates `data/predictions.db` for local prediction history.
+The backend creates a local SQLite database for prediction history.
 
-Once started, check the health endpoint:
+### 10.2 Backend Health Check
+
+Open:
 
 ```text
 http://127.0.0.1:8000/health
 ```
 
-Interactive API documentation:
+### 10.3 API Documentation
+
+Open:
 
 ```text
 http://127.0.0.1:8000/docs
 ```
 
-### 2. Start the Frontend
+### 10.4 Start the Frontend
 
-In the second terminal:
+In a separate terminal:
 
 ```bash
 cd frontend
+
 npm run dev
 ```
 
-Open the local URL printed by Vite (normally `http://localhost:5173`).
+Open the local URL printed by Vite, normally:
+
+```text
+http://localhost:5173
+```
 
 Keep the backend running while using prediction and explanation features.
 
-### Frontend Production Build
+### 10.5 Frontend Production Build
 
 From the `frontend/` directory:
 
 ```bash
 npm run build
+```
+
+To preview the production build:
+
+```bash
 npm run preview
 ```
 
@@ -151,9 +436,11 @@ Optional lint check:
 npm run lint
 ```
 
-## Model Training and Evaluation
+---
 
-The training and evaluation workflow used in the Colab notebook operates on the `cleaned_v1` processed dataset and the precomputed ESM-2 embedding file.
+## 11. Training and Evaluation
+
+The training and evaluation workflow uses the processed `cleaned_v1` dataset and precomputed ESM-2 embeddings.
 
 ### Train XCADTA
 
@@ -197,56 +484,126 @@ python src/evaluate.py \
   --out_json results/metrics_concat_ablation.json
 ```
 
-These commands require the corresponding processed data, embeddings and training scripts. They are not required just to launch the already-trained local application.
+These commands require the corresponding processed data, embedding files, and model training scripts. They are not required just to launch an already-trained local application.
 
-## Evaluation Results
+---
 
-The final comparison generated by the project reports the following held-out evaluation metrics:
+## 12. API Documentation
 
-| Metric | XCADTA | Concat Ablation |
-|---|---:|---:|
-| Mean Squared Error (MSE) | 0.2478 | 0.3533 |
-| Concordance Index (CI) | 0.8146 | 0.7761 |
-| Modified R² (r2m) | 0.6086 | 0.4870 |
-
-Lower MSE is better; higher CI and modified R² are better.
-
-These values are tied to the evaluation outputs and split used for this project. Comparisons should only be interpreted as controlled ablations when both models use matching data splits and evaluation protocols.
-
-## API Endpoints
+The FastAPI backend exposes REST endpoints for prediction, explanation, and application data.
 
 | Method | Endpoint | Purpose |
 |---|---|---|
-| `GET` | `/` | Basic API information |
-| `GET` | `/health` | Backend and model readiness |
-| `GET` | `/proteins` | Available protein library |
-| `GET` | `/drugs` | Available drug library |
-| `POST` | `/predict` | Predict affinity for a drug–protein pair |
-| `POST` | `/explain` | Generate explanation outputs |
-| `GET` | `/history` | Retrieve locally stored prediction history |
+| GET | `/` | Basic API information |
+| GET | `/health` | Backend and model readiness |
+| GET | `/proteins` | Available protein library |
+| GET | `/drugs` | Available drug library |
+| POST | `/predict` | Predict drug–target affinity |
+| POST | `/explain` | Generate explanation outputs |
+| GET | `/history` | Retrieve locally stored prediction history |
+| GET | `/docs` | Interactive API documentation |
 
-See the interactive API documentation at `/docs` for request schemas and response details.
+For detailed request and response schemas, use the FastAPI Swagger documentation at:
 
-## Figures and Research Outputs
+`http://127.0.0.1:8000/docs`
 
-The final evaluation workflow produces five figures under `results/final_figures/`:
+---
 
-1. `Figure_1_XCADTA_Architecture.png`
-2. `Figure_2_XCADTA_vs_Concat_Ablation.png`
-3. `Figure_3_Attention_Heatmap.png`
-4. `Figure_4_Explainability_Validation.png`
-5. `Figure_5_Candidate_Residue_Attention.png`
+## 13. Datasets and Pretrained Models
 
-The corresponding evaluation JSON files are written under `results/`. Keep the JSON outputs with the figures so reported values can be traced back to their evaluation results.
+XCADTA uses the following resources:
 
-## Notes on Interpretation and Reproducibility
+### KIBA Dataset
 
-- The API uses a trained checkpoint and a precomputed ESM-2 embedding cache; installing packages alone does not recreate these artifacts.
-- The protein sequence supplied to the prediction API must be represented in the local embedding cache used by the backend.
-- The prediction history database is created locally and can be regenerated; it is not a trained model artifact.
-- Attention, SHAP and other attribution outputs are model-level explanation signals. They do not establish experimentally validated binding residues.
-- For a fair model comparison, retain the same dataset version, held-out split, preprocessing and evaluation settings for both XCADTA and the ablation model.
+The KIBA dataset provides drug–target interaction affinity information used for model development and evaluation.
 
-## Acknowledgements
+### ESM-2
 
-The project uses the KIBA drug–target affinity dataset and pretrained ESM-2 protein representations. Please consult the original dataset and model documentation and follow their respective citation and usage requirements when redistributing or publishing results.
+ESM-2 is a pretrained protein language model used to generate protein sequence representations.
+
+The project uses precomputed protein embeddings with 1280-dimensional representations.
+
+### Molecular Graphs
+
+RDKit is used to process drug SMILES strings and construct molecular graph representations.
+
+### Model Checkpoints
+
+The trained XCADTA checkpoint is required for inference.
+
+Expected local path:
+
+```text
+checkpoints/cleaned_v1/xcadta_best.pt
+```
+
+### Embedding Cache
+
+The precomputed ESM-2 embedding file is required by the backend.
+
+Expected local path:
+
+```text
+data/processed/esm_embeddings.pt
+```
+
+**Important:** The dataset, trained checkpoint, and embedding cache are not included in the public source-code repository. Obtain them from the project's authorized storage or reproduce them using the documented preprocessing and training workflow. Follow the original resource licences and usage conditions.
+
+---
+
+## 14. Explainability and Interpretation
+
+XCADTA includes explanation outputs intended to help inspect how the trained model processes drug and protein representations.
+
+The explainability workflow includes:
+
+- Cross-attention visualization.
+- Protein residue-level attention outputs.
+- Attribution-based analysis.
+- Explanation validation.
+- Candidate protein analysis.
+
+These methods provide insight into model behaviour and feature attribution.
+
+They do not independently establish experimentally verified molecular interactions or binding mechanisms.
+
+---
+
+## 15. Reproducibility Notes
+
+- Python 3.11 is recommended for the backend environment.
+- Use compatible PyTorch and PyTorch Geometric versions.
+- The API requires the trained model checkpoint and ESM-2 embedding cache.
+- The protein sequence must be represented in the embedding cache used by the backend.
+- The prediction history database is generated locally.
+- Training and evaluation require the corresponding processed dataset.
+- For fair model comparison, use matching dataset versions, data splits, preprocessing, and evaluation settings.
+- The reported metrics correspond to the evaluation outputs generated for this project.
+
+---
+
+## 16. Acknowledgements
+
+This project uses the KIBA drug–target affinity dataset, pretrained ESM-2 protein representations, and open-source deep-learning and molecular-processing libraries.
+
+We acknowledge the developers and researchers behind these resources and recommend consulting their original publications and documentation for appropriate citations and usage requirements.
+
+---
+
+## Author
+
+**Anushka Sunke**
+
+GitHub: [ANUSHKA49282](https://github.com/ANUSHKA49282)
+
+Project Repository:
+
+[XCADTA — Explainable Cross-Attention Drug–Target Affinity Prediction](https://github.com/ANUSHKA49282/XCADTA-Explainable-Cross-Attention-Drug-Target-Affinity-Prediction)
+
+---
+
+<p align="center">
+  <b>XCADTA — Explainable Cross-Attention Drug–Target Affinity Prediction</b>
+  <br>
+  Deep Learning | Drug Discovery | Graph Neural Networks | Cross-Attention | Explainable AI
+</p>
