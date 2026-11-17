@@ -1,4 +1,3 @@
-
 # XCADTA
 ### Explainable Cross-Attention Drug–Target Affinity Prediction
 
@@ -12,22 +11,23 @@ The project integrates an explainability pipeline, a FastAPI backend, and an int
 
 ## Table of Contents
 
-1. [Project Overview](#project-overview)
-2. [Key Features](#key-features)
-3. [Application Screenshots](#application-screenshots)
-4. [Research Figures](#research-figures)
-5. [Model Architecture](#model-architecture)
-6. [Technology Stack](#technology-stack)
-7. [Project Structure](#project-structure)
-8. [Experimental Results](#experimental-results)
-9. [Installation and Setup](#installation-and-setup)
-10. [Running the Application](#running-the-application)
-11. [Training and Evaluation](#training-and-evaluation)
-12. [API Documentation](#api-documentation)
-13. [Datasets and Pretrained Models](#datasets-and-pretrained-models)
-14. [Explainability and Interpretation](#explainability-and-interpretation)
-15. [Reproducibility Notes](#reproducibility-notes)
-16. [Acknowledgements](#acknowledgements)
+1. [Project Overview](#1-project-overview)
+2. [Key Features](#2-key-features)
+3. [Application Screenshots](#3-application-screenshots)
+4. [Research Figures](#4-research-figures)
+5. [Model Architecture](#5-model-architecture)
+6. [Technology Stack](#6-technology-stack)
+7. [Project Structure](#7-project-structure)
+8. [Experimental Results](#8-experimental-results)
+9. [Installation and Setup](#9-installation-and-setup)
+10. [Running the Application](#10-running-the-application)
+11. [Training and Evaluation](#11-training-and-evaluation)
+12. [API Documentation](#12-api-documentation)
+13. [Datasets and Pretrained Models](#13-datasets-and-pretrained-models)
+14. [Explainability and Interpretation](#14-explainability-and-interpretation)
+15. [Reproducibility Notes](#15-reproducibility-notes)
+16. [Acknowledgements](#16-acknowledgements)
+17. [Author](#17-author)
 
 ---
 
@@ -45,8 +45,6 @@ The framework consists of:
 - A fusion and regression module for affinity prediction.
 - Explainability outputs for inspecting model behaviour.
 - A full-stack application for interactive inference and visualization.
-
----
 
 ## 2. Key Features
 
@@ -66,61 +64,75 @@ The framework consists of:
 
 The following screenshots demonstrate the major interfaces and capabilities of the XCADTA application.
 
-All application screenshots are stored in:
-
-`docs/screenshots/`
+All application screenshots are stored in `docs/screenshots/`.
 
 ### 3.1 Home Page
 
+The main dashboard provides an overview of the XCADTA platform and its model performance.
+
 ![XCADTA Home Page](docs/screenshots/01-home.png)
 
-### 3.2 Affinity Prediction — Example 1
+### 3.2 Affinity Prediction — Drug Input
 
-![Affinity Prediction Example 1](docs/screenshots/02-affinity-1.png)
+The affinity prediction interface allows users to select a drug compound or provide a custom SMILES representation.
 
-### 3.3 Affinity Prediction — Example 2
+![Affinity Prediction Drug Input](docs/screenshots/02-affinity-1.png)
 
-![Affinity Prediction Example 2](docs/screenshots/03-affinity-2.png)
+### 3.3 Affinity Prediction — Protein Input and Result
 
-### 3.4 Affinity Prediction Heatmap
+Users can select a target protein from the available protein library and execute the trained model to obtain a predicted KIBA affinity score.
 
-![Affinity Prediction Heatmap](docs/screenshots/04-affinity-heatmap.png)
+![Affinity Prediction Result](docs/screenshots/03-affinity-2.png)
+
+### 3.4 Drug–Protein Attention Heatmap
+
+The atom–residue heatmap visualizes attention patterns between drug atoms and protein residues.
+
+![Affinity Attention Heatmap](docs/screenshots/04-affinity-heatmap.png)
 
 ### 3.5 Explainability Dashboard
 
+The explainability interface provides attention-based residue analysis and model interpretation outputs.
+
 ![XCADTA Explainability Dashboard](docs/screenshots/05-explainability.png)
 
-### 3.6 Detailed Explanation — View 1
+### 3.6 Detailed Explanation — Quantitative Diagnostics
+
+Displays quantitative explanation diagnostics, attribution stability, attention–SHAP agreement, and protein residue contributions.
 
 ![Detailed Explanation View 1](docs/screenshots/06-full-explanation-1.png)
 
-### 3.7 Detailed Explanation — View 2
+### 3.7 Detailed Explanation — Feature Attribution and Validation
+
+Presents drug atom feature attribution and deletion-based explanation validation.
 
 ![Detailed Explanation View 2](docs/screenshots/07-full-explanation-2.png)
 
-### 3.8 Detailed Explanation — View 3
+### 3.8 Detailed Explanation — Recommendations and Methodology
+
+Displays computational drug recommendations, structural similarity results, and explanation methodology.
 
 ![Detailed Explanation View 3](docs/screenshots/08-full-explanation-3.png)
 
-### 3.9 Detailed Explanation — View 4
+### 3.9 Prediction History
 
-![Detailed Explanation View 4](docs/screenshots/09-full-explanation-4.png)
+The prediction history interface displays previously saved inference records, including SMILES representations, protein lengths, predicted KIBA scores, and timestamps.
 
-### 3.10 Prediction History
+![XCADTA Prediction History](docs/screenshots/09-prediction-history.png)
 
-![XCADTA Prediction History](docs/screenshots/10-prediction-history.png)
+### 3.10 Model Architecture
 
-### 3.11 Model Architecture
+The architecture interface presents the major components of the XCADTA framework and its cross-modal learning workflow.
 
-![XCADTA Model Architecture Interface](docs/screenshots/11-model-architecture.png)
+![XCADTA Model Architecture](docs/screenshots/10-model-architecture.png)
 
 ---
 
 ## 4. Research Figures
 
-The following figures present the proposed architecture, model comparison, attention visualization, and explainability evaluation.
+The following five figures present the proposed architecture, model comparison, attention visualization, and explainability evaluation.
 
-All five figures are available in `results/final_figures/`.
+All research figures are available in `results/final_figures/`.
 
 ### Figure 1. XCADTA Model Architecture
 
@@ -231,9 +243,11 @@ XCADTA/
 │       ├── 06-full-explanation-1.png
 │       ├── 07-full-explanation-2.png
 │       ├── 08-full-explanation-3.png
-│       ├── 09-full-explanation-4.png
-│       ├── 10-prediction-history.png
-│       └── 11-model-architecture.png
+│       ├── 09-prediction-history.png
+│       └── 10-model-architecture.png
+│
+├── notebooks/
+│   └── XCADTA_Final_Training_and_Evaluation.ipynb
 │
 ├── results/
 │   ├── archive/
@@ -590,7 +604,7 @@ We acknowledge the developers and researchers behind these resources and recomme
 
 ---
 
-## Author
+## 17. Author
 
 **Anushka Sunke**
 
